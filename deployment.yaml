@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-multi-node-apm
+  labels:
+    app: hello-world-multi-node-apm
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-multi-node-apm
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-world-multi-node-apm
+    spec:
+      containers:
+        - name: hello-world-multi-node-apm
+          image: 192.168.1.104:5000/practicaldevopsguy/hello_world_multi_node_apm:latest
+          imagePullPolicy: Always
